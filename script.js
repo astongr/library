@@ -45,5 +45,20 @@ function displayBooks() {
   });
 }
 
+const bookForm = document.querySelector("#book-form");
+
+bookForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const titleValue = document.querySelector("#title").value;
+  const authorValue = document.querySelector("#author").value;
+  const pagesValue = Number(document.querySelector("#pages").value);
+  const readValue = document.querySelector("#read").checked;
+
+  addBookToLibrary(titleValue, authorValue, pagesValue, readValue);
+
+  displayBooks();
+  bookForm.reset();
+});
+
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
 addBookToLibrary("Dune", "Frank Herbert", 412, false);
