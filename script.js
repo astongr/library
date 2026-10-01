@@ -23,22 +23,31 @@ function displayBooks() {
   libraryContainer.innerHTML = "";
   myLibrary.forEach(function (book) {
     const card = document.createElement("div");
+    card.classList.add("book-card");
 
     const title = document.createElement("p");
     title.textContent = book.title;
+    title.classList.add("book-title");
 
     const author = document.createElement("p");
     author.textContent = book.author;
+    author.classList.add("book-author");
 
     const pages = document.createElement("p");
     pages.textContent = `${book.pages} pages`;
+    pages.classList.add("book-pages");
 
     const readStatus = document.createElement("p");
     readStatus.textContent = book.read ? "Already read" : "Not read yet";
+    readStatus.classList.add("book-read");
+
+    const buttonGroup = document.createElement("div");
+    buttonGroup.classList.add("card-buttons");
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Remove";
     removeButton.dataset.id = book.id;
+    removeButton.classList.add("remove-btn");
 
     removeButton.addEventListener("click", function (e) {
       const id = e.target.dataset.id;
@@ -52,6 +61,7 @@ function displayBooks() {
     const toggleButton = document.createElement("button");
     toggleButton.textContent = "Toggle Read";
     toggleButton.dataset.id = book.id;
+    toggleButton.classList.add("toggle-btn");
 
     toggleButton.addEventListener("click", function (e) {
       const id = e.target.dataset.id;
@@ -66,14 +76,26 @@ function displayBooks() {
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(readStatus);
-    card.appendChild(removeButton);
-    card.appendChild(toggleButton);
+    buttonGroup.appendChild(removeButton);
+    buttonGroup.appendChild(toggleButton);
+    card.appendChild(buttonGroup);
 
     libraryContainer.appendChild(card);
   });
 }
 
 const bookForm = document.querySelector("#book-form");
+
+const bookDialog = document.querySelector("#book-dialog");
+const modalButton = document.querySelector("#modal-button");
+modalButton.addEventListener("click", function () {
+  bookDialog.showModal();
+});
+const cancelButton = document.querySelector("#cancel-button");
+cancelButton.addEventListener("click", function () {
+  bookForm.reset();
+  bookDialog.close();
+});
 
 bookForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -86,7 +108,10 @@ bookForm.addEventListener("submit", function (e) {
 
   displayBooks();
   bookForm.reset();
+  bookDialog.close();
 });
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
 addBookToLibrary("Dune", "Frank Herbert", 412, false);
+
+displayBooks();
