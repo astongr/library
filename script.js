@@ -36,10 +36,38 @@ function displayBooks() {
     const readStatus = document.createElement("p");
     readStatus.textContent = book.read ? "Already read" : "Not read yet";
 
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.dataset.id = book.id;
+
+    removeButton.addEventListener("click", function (e) {
+      const id = e.target.dataset.id;
+      const index = myLibrary.findIndex(function (book) {
+        return book.id === id;
+      });
+      myLibrary.splice(index, 1);
+      displayBooks();
+    });
+
+    const toggleButton = document.createElement("button");
+    toggleButton.textContent = "Toggle Read";
+    toggleButton.dataset.id = book.id;
+
+    toggleButton.addEventListener("click", function (e) {
+      const id = e.target.dataset.id;
+      const found = myLibrary.find(function (book) {
+        return book.id === id;
+      });
+      found.toggleRead();
+      displayBooks();
+    });
+
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(readStatus);
+    card.appendChild(removeButton);
+    card.appendChild(toggleButton);
 
     libraryContainer.appendChild(card);
   });
