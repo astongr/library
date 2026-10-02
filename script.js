@@ -42,6 +42,20 @@ function createBookCard(book) {
   const buttonGroup = document.createElement("div");
   buttonGroup.classList.add("card-buttons");
 
+  const removeButton = createRemoveButton(book);
+  const toggleButton = createToggleButton(book);
+
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
+  card.appendChild(readStatus);
+  buttonGroup.appendChild(removeButton);
+  buttonGroup.appendChild(toggleButton);
+  card.appendChild(buttonGroup);
+  return card;
+}
+
+function createRemoveButton(book) {
   const removeButton = document.createElement("button");
   removeButton.textContent = "Remove";
   removeButton.dataset.id = book.id;
@@ -55,7 +69,10 @@ function createBookCard(book) {
     myLibrary.splice(index, 1);
     displayBooks();
   });
+  return removeButton;
+}
 
+function createToggleButton(book) {
   const toggleButton = document.createElement("button");
   toggleButton.textContent = "Toggle Read";
   toggleButton.dataset.id = book.id;
@@ -69,15 +86,7 @@ function createBookCard(book) {
     found.toggleRead();
     displayBooks();
   });
-
-  card.appendChild(title);
-  card.appendChild(author);
-  card.appendChild(pages);
-  card.appendChild(readStatus);
-  buttonGroup.appendChild(removeButton);
-  buttonGroup.appendChild(toggleButton);
-  card.appendChild(buttonGroup);
-  return card;
+  return toggleButton;
 }
 
 function displayBooks() {
