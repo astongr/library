@@ -8,6 +8,7 @@
   --primary-blue: #1992d4;
   --main-bg: #e2e8f0;
   --accent: #f0b429;
+  --secondary: #64748b;
 }
 
 body {
@@ -40,11 +41,84 @@ body {
 
 #book-dialog {
   margin: auto;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 25px;
 }
 
 #book-form {
   display: flex;
   flex-direction: column;
-  padding: 15px;
-  gap: 15px;
+  gap: 25px;
+}
+
+#book-form input[type="text"],
+#book-form input[type="number"] {
+  padding: 10px;
+  border: 2px solid lightgrey;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.read-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#book-form button[type="submit"] {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex: 1;
+}
+
+#cancel-button {
+  background-color: white;
+  color: var(--secondary);
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid var(--secondary);
+  cursor: pointer;
+  flex: 1;
+}
+
+#cancel-button:hover {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-header {
+  font-size: 1.5rem;
+}
+
+.form-subtext {
+  color: var(--secondary);
+}
+
+.header-icon {
+  height: 50px;
+  width: 50px;
 }
