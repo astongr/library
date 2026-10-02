@@ -19,67 +19,71 @@ function addBookToLibrary(title, author, pages, read) {
 
 const libraryContainer = document.querySelector("#library");
 
+function createBookCard(book) {
+  const card = document.createElement("div");
+  card.classList.add("book-card");
+
+  const title = document.createElement("p");
+  title.textContent = book.title;
+  title.classList.add("book-title");
+
+  const author = document.createElement("p");
+  author.textContent = book.author;
+  author.classList.add("book-author");
+
+  const pages = document.createElement("p");
+  pages.textContent = `${book.pages} pages`;
+  pages.classList.add("book-pages");
+
+  const readStatus = document.createElement("p");
+  readStatus.textContent = book.read ? "Already read" : "Not read yet";
+  readStatus.classList.add("book-read");
+
+  const buttonGroup = document.createElement("div");
+  buttonGroup.classList.add("card-buttons");
+
+  const removeButton = document.createElement("button");
+  removeButton.textContent = "Remove";
+  removeButton.dataset.id = book.id;
+  removeButton.classList.add("remove-btn");
+
+  removeButton.addEventListener("click", function (e) {
+    const id = e.target.dataset.id;
+    const index = myLibrary.findIndex(function (book) {
+      return book.id === id;
+    });
+    myLibrary.splice(index, 1);
+    displayBooks();
+  });
+
+  const toggleButton = document.createElement("button");
+  toggleButton.textContent = "Toggle Read";
+  toggleButton.dataset.id = book.id;
+  toggleButton.classList.add("toggle-btn");
+
+  toggleButton.addEventListener("click", function (e) {
+    const id = e.target.dataset.id;
+    const found = myLibrary.find(function (book) {
+      return book.id === id;
+    });
+    found.toggleRead();
+    displayBooks();
+  });
+
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
+  card.appendChild(readStatus);
+  buttonGroup.appendChild(removeButton);
+  buttonGroup.appendChild(toggleButton);
+  card.appendChild(buttonGroup);
+  return card;
+}
+
 function displayBooks() {
   libraryContainer.innerHTML = "";
   myLibrary.forEach(function (book) {
-    const card = document.createElement("div");
-    card.classList.add("book-card");
-
-    const title = document.createElement("p");
-    title.textContent = book.title;
-    title.classList.add("book-title");
-
-    const author = document.createElement("p");
-    author.textContent = book.author;
-    author.classList.add("book-author");
-
-    const pages = document.createElement("p");
-    pages.textContent = `${book.pages} pages`;
-    pages.classList.add("book-pages");
-
-    const readStatus = document.createElement("p");
-    readStatus.textContent = book.read ? "Already read" : "Not read yet";
-    readStatus.classList.add("book-read");
-
-    const buttonGroup = document.createElement("div");
-    buttonGroup.classList.add("card-buttons");
-
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.dataset.id = book.id;
-    removeButton.classList.add("remove-btn");
-
-    removeButton.addEventListener("click", function (e) {
-      const id = e.target.dataset.id;
-      const index = myLibrary.findIndex(function (book) {
-        return book.id === id;
-      });
-      myLibrary.splice(index, 1);
-      displayBooks();
-    });
-
-    const toggleButton = document.createElement("button");
-    toggleButton.textContent = "Toggle Read";
-    toggleButton.dataset.id = book.id;
-    toggleButton.classList.add("toggle-btn");
-
-    toggleButton.addEventListener("click", function (e) {
-      const id = e.target.dataset.id;
-      const found = myLibrary.find(function (book) {
-        return book.id === id;
-      });
-      found.toggleRead();
-      displayBooks();
-    });
-
-    card.appendChild(title);
-    card.appendChild(author);
-    card.appendChild(pages);
-    card.appendChild(readStatus);
-    buttonGroup.appendChild(removeButton);
-    buttonGroup.appendChild(toggleButton);
-    card.appendChild(buttonGroup);
-
+    const card = createBookCard(book);
     libraryContainer.appendChild(card);
   });
 }
