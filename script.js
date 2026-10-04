@@ -62,12 +62,14 @@ function createRemoveButton(book) {
   removeButton.classList.add("remove-btn");
 
   removeButton.addEventListener("click", function (e) {
-    const id = e.target.dataset.id;
-    const index = myLibrary.findIndex(function (book) {
-      return book.id === id;
-    });
-    myLibrary.splice(index, 1);
-    displayBooks();
+    if (confirm("Are you sure you want to remove " + book.title + "?")) {
+      const id = e.target.dataset.id;
+      const index = myLibrary.findIndex(function (book) {
+        return book.id === id;
+      });
+      myLibrary.splice(index, 1);
+      displayBooks();
+    }
   });
   return removeButton;
 }

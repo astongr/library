@@ -8,12 +8,13 @@
     <script src="script.js" defer></script>
   </head>
   <body>
+    <!--Modal for adding new book-->
     <dialog id="book-dialog">
       <div class="modal-header">
-        <img class="header-icon" src="book-plus.svg" alt="">
+        <img class="header-icon" src="book-plus.svg" alt="" />
         <div class="header-text">
-        <h2 class="form-header">Add New Book</h2>
-        <p class="form-subtext">Please enter the details to add your book.</p>
+          <h2 class="form-header">Add New Book</h2>
+          <p class="form-subtext">Please enter the details to add your book.</p>
         </div>
       </div>
       <form id="book-form">
@@ -24,14 +25,24 @@
           ><input type="checkbox" id="read" />Have you read this book?</label
         >
         <div class="modal-buttons">
-        <button type="submit">Add Book</button>
-        <button type="button" id="cancel-button">Cancel</button>
+          <button type="submit">Add Book</button>
+          <button type="button" id="cancel-button">Cancel</button>
+        </div>
       </form>
-      
     </dialog>
-
-    <button id="modal-button">Add Book</button>
-
-    <div id="library"></div>
+    <!--Main page container-->
+    <div class="container">
+      <aside class="sidebar">
+        <button id="modal-button">Add Book</button>
+        <h2>Sidebar</h2>
+      </aside>
+      <header class="header">
+        <h2>This is the Header</h2>
+      </header>
+      <main>
+        <h2>Main Section</h2>
+        <div id="library"></div>
+      </main>
+    </div>
   </body>
 </html>
