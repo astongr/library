@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="My Library logo">
+  <!-- data streams branching off the book -->
+  <g fill="none" stroke="#f97316" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- top-left -->
+    <path d="M40 44 L40 28 L24 28" />
+    <!-- top-right -->
+    <path d="M80 44 L80 28 L96 28" />
+    <!-- left -->
+    <path d="M30 66 L14 66" />
+    <!-- right -->
+    <path d="M90 66 L106 66" />
+    <!-- lower-left -->
+    <path d="M38 82 L30 90 L18 90" />
+    <!-- lower-right -->
+    <path d="M82 82 L90 90 L102 90" />
+  </g>
+
+  <!-- stream end nodes -->
+  <g fill="#fb923c">
+    <circle cx="22" cy="28" r="3.5" />
+    <circle cx="98" cy="28" r="3.5" />
+    <circle cx="12" cy="66" r="3.5" />
+    <circle cx="108" cy="66" r="3.5" />
+    <circle cx="16" cy="90" r="3.5" />
+    <circle cx="104" cy="90" r="3.5" />
+  </g>
+
+  <!-- open book: left page -->
+  <path d="M60 44 C50 38 38 38 30 42 L30 78 C38 74 50 74 60 80 Z" fill="#f97316" />
+  <!-- open book: right page -->
+  <path d="M60 44 C70 38 82 38 90 42 L90 78 C82 74 70 74 60 80 Z" fill="#fb923c" />
+
+  <!-- spine -->
+  <rect x="58.5" y="44" width="3" height="36" rx="1.5" fill="#111111" />
+
+  <!-- page lines (etched detail) -->
+  <g stroke="#111111" stroke-width="1.6" stroke-linecap="round" opacity="0.65">
+    <path d="M38 50 C45 48 52 48 55 50" fill="none" />
+    <path d="M38 58 C45 56 52 56 55 58" fill="none" />
+    <path d="M38 66 C45 64 52 64 55 66" fill="none" />
+    <path d="M65 50 C68 48 75 48 82 50" fill="none" />
+    <path d="M65 58 C68 56 75 56 82 58" fill="none" />
+    <path d="M65 66 C68 64 75 64 82 66" fill="none" />
+  </g>
+
+  <!-- central nexus node on the spine -->
+  <circle cx="60" cy="62" r="4.5" fill="#111111" />
+  <circle cx="60" cy="62" r="2" fill="#fb923c" />
+</svg>

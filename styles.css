@@ -7,8 +7,9 @@
 :root {
   --primary-blue: #1992d4;
   --main-bg: #e2e8f0;
-  --accent: #f0b429;
+  --accent: #f97316;
   --secondary: #64748b;
+  --dark: #111111;
 }
 
 body {
@@ -126,7 +127,7 @@ body {
 .container {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 300px 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "sidebar header"
@@ -135,6 +136,12 @@ body {
 
 .sidebar {
   grid-area: sidebar;
+  background-color: var(--dark);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
 }
 
 .header {
@@ -143,4 +150,40 @@ body {
 
 main {
   grid-area: main;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.sidebar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+}
+
+.logo-icon {
+  height: 70px;
+  width: 70px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: lightgrey;
+  font-size: 1.1rem;
+  padding: 12px;
+}
+
+.menu-item:hover {
+  color: var(--accent);
+}
+
+.logout-item {
+  margin-top: auto;
 }
