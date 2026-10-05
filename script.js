@@ -1,10 +1,11 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, cover = "cover-placeholder.svg") {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.cover = cover;
   this.id = crypto.randomUUID();
 }
 
@@ -12,8 +13,8 @@ Book.prototype.toggleRead = function toggleRead() {
   this.read = !this.read;
 };
 
-function addBookToLibrary(title, author, pages, read) {
-  const newBook = new Book(title, author, pages, read);
+function addBookToLibrary(title, author, pages, read, cover) {
+  const newBook = new Book(title, author, pages, read, cover);
   myLibrary.push(newBook);
 }
 
@@ -22,7 +23,7 @@ const unreadGrid = document.querySelector("#unread-books-grid");
 
 function createBookCard(book) {
   const cover = document.createElement("img");
-  cover.src = "cover-placeholder.svg";
+  cover.src = book.cover;
   cover.alt = "Cover of Book";
   cover.classList.add("book-cover");
 
@@ -142,7 +143,7 @@ bookForm.addEventListener("submit", function (e) {
   bookDialog.close();
 });
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true);
-addBookToLibrary("Dune", "Frank Herbert", 412, false);
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true, "hobbit-cover.jpg");
+addBookToLibrary("Dune", "Frank Herbert", 412, false, "dune-cover.jpg");
 
 displayBooks();
