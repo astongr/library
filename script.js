@@ -145,5 +145,41 @@ bookForm.addEventListener("submit", function (e) {
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true, "hobbit-cover.jpg");
 addBookToLibrary("Dune", "Frank Herbert", 412, false, "dune-cover.jpg");
+addBookToLibrary(
+  "Harry Potter and the Half-Blood Prince",
+  "J.K. Rowling",
+  607,
+  true,
+  "harrypotter-cover.jpg",
+);
+addBookToLibrary(
+  "The Name of the Wind",
+  "Patrick Rothfuss",
+  670,
+  true,
+  "nameofthewind-cover.jpg",
+);
+addBookToLibrary(
+  "The Wise Man's Fear",
+  "Patrick Rothfuss",
+  1008,
+  false,
+  "wisemansfear-cover.jpg",
+);
+addBookToLibrary("Death Masks", "Jim Butcher", 448, true, "deathmasks-cover.jpg");
+addBookToLibrary(
+  "Mistborn: The Final Empire",
+  "Brandon Sanderson",
+  541,
+  false,
+  "mistborn-cover.jpg",
+);
+addBookToLibrary(
+  "Angels & Demons",
+  "Dan Brown",
+  624,
+  false,
+  "angels-demons-cover.jpg",
+);
 
 displayBooks();

@@ -38,6 +38,7 @@ body {
 .card-buttons {
   display: flex;
   gap: 20px;
+  margin-top: auto;
 }
 
 .card-content {
@@ -319,4 +320,14 @@ main {
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.books-grid {
+  gap: 40px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
