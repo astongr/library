@@ -21,9 +21,13 @@
         <input type="text" id="title" placeholder="Title" />
         <input type="text" id="author" placeholder="Author" />
         <input type="number" id="pages" placeholder="Pages" />
-        <label class="read-label"
-          ><input type="checkbox" id="read" />Have you read this book?</label
-        >
+        <label class="read-label">
+          <label>
+            <input type="checkbox" id="read" />
+            <span class="slider"></span>
+            <span>Have you read this book?</span>
+          </label>
+        </label>
         <div class="modal-buttons">
           <button type="submit">Add Book</button>
           <button type="button" id="cancel-button">Cancel</button>

@@ -78,13 +78,17 @@ body {
 }
 
 #book-form button[type="submit"] {
-  background-color: var(--primary-blue);
+  background-color: var(--accent);
   color: white;
   padding: 10px;
   border-radius: 8px;
   border: 2px solid transparent;
   cursor: pointer;
   flex: 1;
+}
+
+#book-form button[type="submit"]:hover {
+  background-color: #ea580c;
 }
 
 #cancel-button {
@@ -367,4 +371,37 @@ main {
 #confirm-cancel-btn:hover {
   background-color: var(--secondary);
   color: white;
+}
+
+#read {
+  opacity: 0;
+  position: absolute;
+}
+
+#read:checked + .slider {
+  background-color: var(--accent);
+}
+
+#read:checked + .slider::before {
+  left: 23px;
+}
+.slider {
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  background-color: #9ca3af;
+  border-radius: 12px;
+  position: relative;
+}
+
+.slider::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s;
 }
