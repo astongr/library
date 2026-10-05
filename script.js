@@ -21,8 +21,16 @@ const readGrid = document.querySelector("#read-books-grid");
 const unreadGrid = document.querySelector("#unread-books-grid");
 
 function createBookCard(book) {
+  const cover = document.createElement("img");
+  cover.src = "cover-placeholder.svg";
+  cover.alt = "Cover of Book";
+  cover.classList.add("book-cover");
+
   const card = document.createElement("div");
   card.classList.add("book-card");
+
+  const content = document.createElement("div");
+  content.classList.add("card-content");
 
   const title = document.createElement("p");
   title.textContent = book.title;
@@ -46,13 +54,15 @@ function createBookCard(book) {
   const removeButton = createRemoveButton(book);
   const toggleButton = createToggleButton(book);
 
-  card.appendChild(title);
-  card.appendChild(author);
-  card.appendChild(pages);
-  card.appendChild(readStatus);
+  card.appendChild(cover);
+  card.appendChild(content);
+  content.appendChild(title);
+  content.appendChild(author);
+  content.appendChild(pages);
+  content.appendChild(readStatus);
   buttonGroup.appendChild(removeButton);
   buttonGroup.appendChild(toggleButton);
-  card.appendChild(buttonGroup);
+  content.appendChild(buttonGroup);
   return card;
 }
 
