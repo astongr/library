@@ -120,12 +120,27 @@
               </svg>
               <span>Read</span>
             </a>
-            <li>
-              <a href="#" class="menu-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-x preview-icon"><path d="m14.5 7.5-5 5"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m9.5 7.5 5 5"/></svg>
-                <span>Unread</span>
-              </a>
-            </li>
+          </li>
+          <li>
+            <a href="#" class="menu-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-book-x preview-icon">
+                <path d="m14.5 7.5-5 5" />
+                <path
+                  d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
+                <path d="m9.5 7.5 5 5" />
+              </svg>
+              <span>Unread</span>
+            </a>
           </li>
         </ul>
         <ul class="bottom-list">
@@ -194,7 +209,20 @@
       </aside>
 
       <header class="header">
-        <h2>This is the Header</h2>
+        <div class="search-bar">
+          <img class="symbol" src="magnify.svg" alt="" />
+          <input
+            type="search"
+            class="search-input"
+            id="site-search"
+            name="search" />
+        </div>
+
+        <div class="notification">
+          <img class="symbol" src="bell-ring-outline.svg" alt="" />
+          <img src="library-avatar.svg" class="avatar" alt="" />
+          <p>Aston Godwin-Ross</p>
+        </div>
       </header>
       <main>
         <h2>Main Section</h2>

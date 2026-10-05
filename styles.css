@@ -147,6 +147,12 @@ body {
 
 .header {
   grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 main {
@@ -210,4 +216,42 @@ main {
   background-color: #ea580c;
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.symbol {
+  height: 30px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 500px;
+}
+
+.search-input {
+  flex: 1;
+  border-radius: 999px;
+  border: 2px solid var(--dark);
+  background-color: lightgray;
+  color: var(--accent);
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+.search-input:focus {
+  outline: 2px solid var(--accent);
 }
