@@ -30,6 +30,23 @@
         </div>
       </form>
     </dialog>
+
+    <!--Confirmation modal for removing a book-->
+    <dialog id="confirm-dialog">
+      <div class="modal-header">
+        <img class="header-icon" src="book-plus.svg" alt="" />
+        <div class="header-text">
+          <h2 class="form-header">Remove Book</h2>
+          <p class="form-subtext" id="confirm-text">
+            Are you sure you want to remove this book?
+          </p>
+        </div>
+      </div>
+      <div class="modal-buttons">
+        <button type="button" id="confirm-remove-btn">Remove</button>
+        <button type="button" id="confirm-cancel-btn">Cancel</button>
+      </div>
+    </dialog>
     <!--Main page container-->
     <div class="container">
       <aside class="sidebar">

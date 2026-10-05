@@ -74,14 +74,10 @@ function createRemoveButton(book) {
   removeButton.classList.add("remove-btn");
 
   removeButton.addEventListener("click", function (e) {
-    if (confirm("Are you sure you want to remove " + book.title + "?")) {
-      const id = e.target.dataset.id;
-      const index = myLibrary.findIndex(function (book) {
-        return book.id === id;
-      });
-      myLibrary.splice(index, 1);
-      displayBooks();
-    }
+    pendingRemoveId = e.target.dataset.id;
+    confirmText.textContent =
+      "Are you sure you want to remove " + book.title + "?";
+    confirmDialog.showModal();
   });
   return removeButton;
 }
@@ -141,6 +137,26 @@ bookForm.addEventListener("submit", function (e) {
   displayBooks();
   bookForm.reset();
   bookDialog.close();
+});
+
+// --- Confirmation modal for removing a book ---
+let pendingRemoveId = null;
+const confirmDialog = document.querySelector("#confirm-dialog");
+const confirmText = document.querySelector("#confirm-text");
+const confirmRemoveBtn = document.querySelector("#confirm-remove-btn");
+const confirmCancelBtn = document.querySelector("#confirm-cancel-btn");
+
+confirmRemoveBtn.addEventListener("click", function () {
+  const index = myLibrary.findIndex(function (book) {
+    return book.id === pendingRemoveId;
+  });
+  myLibrary.splice(index, 1);
+  displayBooks();
+  confirmDialog.close();
+});
+
+confirmCancelBtn.addEventListener("click", function () {
+  confirmDialog.close();
 });
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, true, "hobbit-cover.jpg");

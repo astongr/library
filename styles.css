@@ -48,7 +48,8 @@ body {
   padding: 15px;
 }
 
-#book-dialog {
+#book-dialog,
+#confirm-dialog {
   margin: auto;
   border: none;
   border-radius: 25px;
@@ -330,4 +331,40 @@ main {
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+#book-dialog::backdrop,
+#confirm-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+/* Confirm dialog buttons: Remove = filled primary, Cancel = outline secondary */
+#confirm-remove-btn {
+  background-color: var(--accent);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex: 1;
+}
+
+#confirm-remove-btn:hover {
+  background-color: #ea580c;
+}
+
+#confirm-cancel-btn {
+  background-color: white;
+  color: var(--secondary);
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid var(--secondary);
+  cursor: pointer;
+  flex: 1;
+}
+
+#confirm-cancel-btn:hover {
+  background-color: var(--secondary);
+  color: white;
 }
