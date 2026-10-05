@@ -17,7 +17,8 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(newBook);
 }
 
-const libraryContainer = document.querySelector("#library");
+const readGrid = document.querySelector("#read-books-grid");
+const unreadGrid = document.querySelector("#unread-books-grid");
 
 function createBookCard(book) {
   const card = document.createElement("div");
@@ -92,10 +93,15 @@ function createToggleButton(book) {
 }
 
 function displayBooks() {
-  libraryContainer.innerHTML = "";
+  readGrid.innerHTML = "";
+  unreadGrid.innerHTML = "";
   myLibrary.forEach(function (book) {
     const card = createBookCard(book);
-    libraryContainer.appendChild(card);
+    if (book.read) {
+      readGrid.appendChild(card);
+    } else {
+      unreadGrid.appendChild(card);
+    }
   });
 }
 
