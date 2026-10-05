@@ -140,8 +140,9 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   padding: 20px;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .header {
@@ -158,12 +159,13 @@ main {
   gap: 15px;
 }
 
-.sidebar-list {
+.top-list,
+.bottom-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  flex: 1;
   gap: 20px;
+  padding: 10px;
 }
 
 .logo-icon {
@@ -175,15 +177,37 @@ main {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: lightgrey;
+  color: #9ca3af;
   font-size: 1.1rem;
   padding: 12px;
+  gap: 12px;
 }
 
 .menu-item:hover {
   color: var(--accent);
 }
 
-.logout-item {
+.bottom-list {
   margin-top: auto;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#modal-button {
+  background-color: var(--accent);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+#modal-button:hover {
+  background-color: #ea580c;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
 }
