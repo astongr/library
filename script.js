@@ -1,17 +1,18 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read, cover = "cover-placeholder.svg") {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.cover = cover;
-  this.id = crypto.randomUUID();
+class Book {
+  constructor(title, author, pages, read, cover = "cover-placeholder.svg") {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.cover = cover;
+    this.id = crypto.randomUUID();
+  }
+  toggleRead() {
+    this.read = !this.read;
+  }
 }
-
-Book.prototype.toggleRead = function toggleRead() {
-  this.read = !this.read;
-};
 
 function addBookToLibrary(title, author, pages, read, cover) {
   const newBook = new Book(title, author, pages, read, cover);
@@ -182,7 +183,13 @@ addBookToLibrary(
   false,
   "wisemansfear-cover.jpg",
 );
-addBookToLibrary("Death Masks", "Jim Butcher", 448, true, "deathmasks-cover.jpg");
+addBookToLibrary(
+  "Death Masks",
+  "Jim Butcher",
+  448,
+  true,
+  "deathmasks-cover.jpg",
+);
 addBookToLibrary(
   "Mistborn: The Final Empire",
   "Brandon Sanderson",
